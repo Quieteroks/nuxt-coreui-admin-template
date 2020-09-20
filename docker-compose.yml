@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app:
+    container_name: vue-coreui
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: "${NODE_ENV}"
+      NUXT_PORT: "${NUXT_PORT}"
+      NUXT_HOST: "${NUXT_HOST}"
+    tty: true
+    working_dir: /app
+    volumes:
+      - ./:/app:rw
+    command: ["yarn", "${START_COMMAND}"]
+    ports:
+    - '${HOST_PORT}:${NUXT_PORT}'

@@ -69,7 +69,8 @@ export default {
    */
   axios: {},
   server: {
-    port: 8080
+    port: process.env.NUXT_PORT,
+    host: process.env.NUXT_HOST
   },
   /*
    ** Build configuration
